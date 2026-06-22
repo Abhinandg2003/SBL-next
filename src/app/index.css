@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Departure";
+  src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+h1, h2, h3, h4 {
+  font-family: "Satoshi", serif;
+}
+
+
+p, button, div {
+  font-family: "Satoshi", serif;
+}
+
+
+html,
+/* body,
+* {
+  cursor: none !important;
+} */
+
+
+/* Optional: smooth theme transition */
+html {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  margin: 0;
+}
+
+
+:root {
+  --bg: 255, 255, 255;
+  --text-light: 255 255 255;
+  --text-dark: 00 00 00;
+  --text-light: 3 9 20;
+  --primary-color: 84, 52, 209;
+  --secondary-color: 3 9 20;
+  
+  
+  /* --color-primary: 222, 145, 22;
+  --color-secondary: 65, 85, 143; */
+}
+
+/* .dark {
+  --bg: 16 24 32;
+  --text: 255 255 255;
+  --color-primary: 136, 78, 218;
+  --color-secondary: 242 170 76;
+} */
+
+
+.logo-white {
+  background-image: url("/images/sbl logo3.png");
+}
+
+.logo-black {
+  background-image: url("/images/sbl logo3.png");
+}
+
+
+
+/* Navbar underline animation */
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: rgb(var(--text-light));
+  transform: scaleX(0);
+
+
+  opacity: 0.8;
+}
+
+.font-departure {
+  font-family: "Departure", monospace;
+}
+
+
+.nav-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Optional: keep underline visible for active link */
+.nav-underline.active::after {
+  transform: scaleX(1);
+}
+
+
+/* Footer underline animation */
+.footer-underline {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.footer-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* little gap under text */
+  height: 1px;
+  width: 100%;
+  background: rgb(256 256 256); /* uses your theme text */
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0.7;
+}
+
+.footer-underline:hover::after {
+  transform: scaleX(1);
+  background: rgb(256 256 256);
+}
+
+
+.sparkle-star {
+  position: absolute;
+
+  width: 20px;
+  height: 40px;
+
+  animation: sparkleBlink 2.5s ease-in-out infinite;
+}
+
+/* Vertical tail */
+.sparkle-star::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    white,
+    transparent
+  );
+
+  border-radius: 999px;
+
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+/* Horizontal tail */
+.sparkle-star::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  transform: translateY(-50%);
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    white,
+    transparent
+  );
+
+  border-radius: 999px;
+
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+
+
+
+
+
+/* Footer underline animation */
+.footer-underline-head {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-underline-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* little gap under text */
+  height: 1px;
+  width: 100%;
+  background: rgb(256 256 256); /* uses your theme text */
+  transform: scaleX(1);
+  transform-origin: left;
+  opacity: 0.7;
+}
+
+.footer-underline-head:hover::after {
+  transform: scaleX(1);
+}
+
+
+li {
+  list-style-type: circle;
+}
+
+
+
+@layer components {
+
+  .btn-outline-primary {
+    @apply
+      rounded-sm
+      px-5 py-3
+      text-sm font-medium
+      bg-white/0
+      text-black
+      border border-black/40
+      ring-4 ring-black/0
+      transition-all duration-300
+      hover:bg-[rgb(var(--primary-color))]/10
+      hover:border-[rgb(var(--primary-color))]
+      hover:ring-[rgb(var(--primary-color))]/20;
+  }
+
+    .btn-outline-secondary {
+    @apply
+      rounded-sm
+      px-5 py-3
+      text-sm font-medium
+      bg-white/0
+      text-white
+      border border-white/40
+      ring-4 ring-black/0
+      transition-all duration-300
+      hover:bg-[rgb(var(--primary-color))]/10
+      hover:border-[rgb(var(--primary-color))]
+      hover:ring-[rgb(var(--primary-color))]/20;
+  }
+
+  .btn-primary {
+    @apply
+      rounded-sm
+      px-5 py-3
+      text-sm font-medium
+      bg-black
+      text-white
+      transition-all duration-300
+      hover:bg-[rgb(var(--primary-color))];
+  }
+
+  .premium-gradient{
+    background:radial-gradient(23.3% 47.34% at 23.3% 15.14%, rgba(33, 186, 122, .2) 0, rgba(33, 186, 122, 0) 69.85%), radial-gradient(79.07% 37.31% at 25.07% -8.28%, rgba(14, 78, 183, .7) 0, rgba(14, 78, 183, 0) 100%), radial-gradient(114.42% 33.64% at 50% -5.76%, rgba(12, 148, 188, .5) 0, rgba(0, 0, 0, .5) 100%), linear-gradient(0deg, #050910, #050910), #12274a;
+  }
+
+  .btn-secondary {
+    @apply
+      rounded-sm
+      px-5 py-3
+      text-sm font-medium
+      bg-black
+      text-white
+      ring-4 ring-black/0
+      transition-all duration-300
+      hover:bg-[rgb(var(--primary-color))]
+      hover:border-[rgb(var(--primary-color))]
+      hover:ring-[rgb(var(--primary-color))]/20;
+  }
+
+}
